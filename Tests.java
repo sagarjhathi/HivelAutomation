@@ -80,7 +80,29 @@ public class Tests {
 
         String cycleTimeProcess = driver.findElement(By.xpath("(//span[@class='Process_processMetricValue__8LgiT'])[5]")).getText();
         String reviewTimeProcess = driver.findElement(By.xpath("(//span[@class='Process_processMetricValue__8LgiT'])[3]")).getText();
-        System.out.println(cycleTimeProcess + "    " + reviewTimeProcess + " Process numbers");
+        
+        
+        
+        StringBuilder sb=new StringBuilder();
+        StringBuilder sbReview=new StringBuilder();
+        
+        for(int i=0;i<cycleTimeProcess.length();i++) {
+        	if(cycleTimeProcess.charAt(i)=='d') {
+        		sb.append(cycleTimeProcess.charAt(i));
+        		sb.append(" ");	
+        		sbReview.append(reviewTimeProcess.charAt(i));
+        		sbReview.append(" ");
+        	}else {
+        		sb.append(cycleTimeProcess.charAt(i));
+        		sbReview.append(reviewTimeProcess.charAt(i));
+        	}
+        }
+        
+        cycleTimeProcess=sb.toString();
+        reviewTimeProcess=sbReview.toString();
+      
+        		
+        		System.out.println(cycleTimeProcess + "    " + reviewTimeProcess + " Process numbers");
 
         cycleTimeProcess = cycleTimeProcess.trim();
         reviewTimeProcess = reviewTimeProcess.trim();
